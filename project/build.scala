@@ -28,9 +28,11 @@ object MtgLibraryBuild extends Build {
         "org.scalatra" %% "scalatra-scalate" % ScalatraVersion,
         "ch.qos.logback" % "logback-classic" % "1.0.6" % "runtime",
         "org.eclipse.jetty" % "jetty-webapp" % "8.1.10.v20130312" % "compile;container",
-        "org.eclipse.jetty.orbit" % "javax.servlet" % "3.0.0.v201112011016" % "compile;container;provided;test" artifacts (Artifact("javax.servlet", "jar", "jar")),
+        "org.eclipse.jetty.orbit" % "javax.servlet" % "3.0.0.v201112011016" % "compile;container;provided;test" artifacts Artifact("javax.servlet", "jar", "jar"),
         "org.scalatra" %% "scalatra-json" % "2.2.1",
         "org.json4s" %% "json4s-jackson" % "3.2.4",
+        "org.json4s" %% "json4s-jackson" % "3.2.4",
+        "org.mongodb" %% "casbah" % "2.6.3",
 
         "org.scalatra" %% "scalatra-specs2" % ScalatraVersion % "test",
         "org.scalatra" %% "scalatra-scalatest" % "2.2.1" % "test"
