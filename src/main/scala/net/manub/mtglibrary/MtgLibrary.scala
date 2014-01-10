@@ -1,17 +1,10 @@
 package net.manub.mtglibrary
 
-import org.scalatra._
-import scalate.ScalateSupport
-
 class MtgLibrary extends MtgLibraryStack {
 
   get("/") {
-    <html>
-      <body>
-        <h1>Hello, world!</h1>
-        Say <a href="hello-scalate">hello to Scalate</a>.
-      </body>
-    </html>
+    contentType = "text/html"
+    ssp("index", "title" -> "Welcome!", "version" -> BuildInfo.version)
   }
 
 }

@@ -2,6 +2,7 @@ import sbt._
 import Keys._
 import org.scalatra.sbt._
 import com.mojolly.scalate.ScalatePlugin._
+import sbtbuildinfo.Plugin._
 import ScalateKeys._
 import com.typesafe.sbt.SbtStartScript
 
@@ -15,7 +16,8 @@ object MtgLibraryBuild extends Build {
   lazy val project = Project(
     "mtg-library",
     file("."),
-    settings = Seq(SbtStartScript.startScriptForClassesSettings: _*) ++ Defaults.defaultSettings ++ ScalatraPlugin.scalatraWithJRebel ++ scalateSettings ++ Seq(
+    settings = Seq(SbtStartScript.startScriptForClassesSettings: _*) ++
+      Defaults.defaultSettings ++ ScalatraPlugin.scalatraWithJRebel ++ scalateSettings ++ Seq(
       organization := Organization,
       name := Name,
       version := Version,
@@ -45,7 +47,9 @@ object MtgLibraryBuild extends Build {
               Some("templates")
             )
           )
-      }
-    )
+      } ) ++ buildInfoSettings ++
+      Seq(sourceGenerators in Compile <+= buildInfo,
+        buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion),
+        buildInfoPackage := "net.manub.mtglibrary")
   )
 }

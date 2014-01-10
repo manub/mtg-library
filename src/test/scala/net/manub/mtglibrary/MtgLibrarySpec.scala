@@ -7,7 +7,7 @@ class MtgLibrarySpec extends ScalatraSuite with FunSuite {
 
   addServlet(classOf[MtgLibrary], "/*")
 
-  test("simple get") {
+  test("displays the home page") {
     get("/") {
       status should equal (200)
     }

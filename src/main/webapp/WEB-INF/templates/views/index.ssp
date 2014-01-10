@@ -1,0 +1,8 @@
+<%@ val version: String %>
+<html>
+<body>
+<p>Welcome to MTG Library version <%= version %></p>
+
+<p>You can access the health check <a href="health-check">here</a>.</p>
+</body>
+</html>
